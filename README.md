@@ -8,7 +8,7 @@ Dependent on [dotnet sdk version 3.1.402](https://dotnet.microsoft.com/download/
 mkdir my-first-gcp-func
 cd my-first-gcp-func
 ```
-- Create global.json in Project directory created above dotnet looks in current working directory first for version and global config
+- Create [global.json](./global.json) in Project directory created above dotnet looks in current working directory first for version and global config
 ```bash
 touch global.json
 nano global.json
@@ -37,6 +37,7 @@ dotnet run
 
 ## Deploy
 You can see the steps inside [Build.ps1](./Build.ps1)
+The nice thing is the gcloud functions deploy command takes care of zipping up our function code/project and uploading it to Google Cloud Storage within the same project as the function. 
 
 ## Example Invocation 
 [This](./request.ps1) method of invocation leverages the current auth token within context of user or tool to make function call. Not only is the endpoint secured via Authentication but you can also leverage authorization with built in IAM. In this pattern we would save the SA key that the user/tool is using to invoke the lambda inside Secrets Manager. Granting only those who need access to it the roles/secretmanager.secretAccessor role. 
