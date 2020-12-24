@@ -30,10 +30,10 @@ dotnet new -i Google.Cloud.Functions.Templates::1.0.0-beta04
 dotnet new gcf-http 
 ```
 - Run
-Follow above steps in cli then open cs.proj in Visual Studio on Mac. Process should just work inside VS Code. This builds local Kestrel web server listening on 8080 just like the public Cloud Function url will. So local dev should be identical to deployment.
 ```bash
 dotnet run
 ```
+Follow above steps in cli then open cs.proj in Visual Studio on Mac. Process should just work inside VS Code. This builds local Kestrel web server listening on 8080 just like the public Cloud Function url will. So local dev should be identical to deployment.
 
 ## Deploy
 You can see the steps inside [Build.ps1](./Build.ps1)
