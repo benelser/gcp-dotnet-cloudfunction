@@ -1,4 +1,4 @@
-﻿# dotnet-on-gcp
+﻿# gcp-dotnet-cloudfunction
 
 ## Steps as of December 23, 2020
 - Make project directory
@@ -32,6 +32,19 @@ Followed above steps in cli then opened cs.proj in Visual Studio on Mac. Process
 ```bash
 dotnet run
 ```
+
+## Deploy
+You can see the steps inside [Build.ps1](./Build.ps1)
+
+## Example Invocation 
+[This](./request.ps1) method of invocation leverages the current auth token within context of user or tool to make function call. Not only is the endpoint secured via Authentication but you can also leverage authorization with built in IAM. In this pattern we would save the SA key that the user/tool is using to invoke the lambda inside Secrets Manager. Granting only those who need access to it the roles/secretmanager.secretAccessor role. 
+- Authentication 
+  - Implemented on function during deployment out of the box. You have to explicitly allow public access if you so choose by providing the following flag:
+  ```bash
+  --allow-unauthenticated
+  ```
+- Authorization
+  - Achieved by only allowing certain users/tools the ability to read from secrets manager.
 
 ## References 
 - [Functions-Framework](https://github.com/GoogleCloudPlatform/functions-framework-dotnet)
