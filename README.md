@@ -1,6 +1,8 @@
 ﻿# gcp-dotnet-cloudfunction
+Dependent on [dotnet sdk version 3.1.402](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 
 ## Steps as of December 23, 2020
+- Install compatible [SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 - Make project directory
 ```bash
 mkdir my-first-gcp-func
@@ -11,7 +13,7 @@ cd my-first-gcp-func
 touch global.json
 nano global.json
 ```
-- Edit global.json
+- Edit [global.json](./global.json)
 ```json
 {
   "sdk": {
@@ -45,6 +47,9 @@ You can see the steps inside [Build.ps1](./Build.ps1)
   ```
 - Authorization
   - Achieved by only allowing certain users/tools the ability to read from secrets manager.
+
+## Google Cloud Function using Dotnet 
+![Cloud Function](./function.png)
 
 ## References 
 - [Functions-Framework](https://github.com/GoogleCloudPlatform/functions-framework-dotnet)
